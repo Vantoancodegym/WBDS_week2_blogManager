@@ -36,6 +36,6 @@ public class BlogService implements IBlogService{
 
     @Override
     public void remove(Blog blog) {
-        entityManager.remove(blog);
+        entityManager.remove(findById(blog.getId()));
     }
 }

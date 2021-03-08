@@ -22,6 +22,8 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import service.BlogService;
+import service.IBlogService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -111,6 +113,10 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
+    }
+    @Bean
+    public IBlogService iBlogService(){
+        return new BlogService();
     }
 
 }
